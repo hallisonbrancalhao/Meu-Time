@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TeamComponent } from './pages/team/team.component';
+import { SelectComponent } from './pages/select/select.component';
 import { SearchRoutingModule } from './search-routing.module';
-import { SelectComponent } from './select/select.component';
-import { TeamComponent } from './team/team.component';
 
 @NgModule({
   declarations: [SelectComponent, TeamComponent],

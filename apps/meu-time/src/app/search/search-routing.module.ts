@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SelectComponent } from './pages/select/select.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: SelectComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SearchRoutingModule { }
+export class SearchRoutingModule {}
