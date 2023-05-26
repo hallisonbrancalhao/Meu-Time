@@ -15,3 +15,12 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
+
+
+Login
+    País -> Temporada -> Liga (País) -> Time (Liga)
+        - Lista de jogadoes (nome, idade, nacionalidade)
+        - Formação mais utilizada na temporada
+        - uma tabela de resultados (Tot: Jogos, vitórias, Derrotas, empates)
+        - Gráfico com qnt gols marcados por tempo (/team-statistics)
+        
