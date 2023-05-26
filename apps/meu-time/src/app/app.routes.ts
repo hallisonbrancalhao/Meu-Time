@@ -1,5 +1,6 @@
 import { Route } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './shared/components/auth/auth.component';
+import { AuthGuard } from './shared/core/guards/can-active.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -14,6 +15,9 @@ export const appRoutes: Route[] = [
   {
     path: 'buscar',
     loadChildren: () =>
-      import('./search/search.module').then((m) => m.SearchModule),
+      import('./shared/modules/search/search.module').then(
+        (m) => m.SearchModule
+      ),
+    canActivate: [AuthGuard],
   },
 ];

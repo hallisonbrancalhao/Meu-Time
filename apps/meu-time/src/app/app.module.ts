@@ -3,7 +3,7 @@ import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './shared/components/auth/auth.component';
 
 @NgModule({
   declarations: [AppComponent, AuthComponent],
