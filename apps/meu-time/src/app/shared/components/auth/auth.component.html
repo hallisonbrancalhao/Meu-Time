@@ -1,1 +1,34 @@
-<p>auth works!</p>
+<div class='login'>
+    <div class='login__container'>
+        <div class="images">
+            <div class="file"></div>
+            <div class="ball_one"></div>
+            <div class="ball_two"></div>
+        </div>
+        <div class='form-container'>
+            <div class='form-container__box'>
+                <section>
+                    <div>
+                        <img src="/assets/images/hello.png" height='100' width='150' alt=''>
+                        <h1>Meu time</h1>
+                        <p>Insira a sua credencial para acessar o sistema</p>
+                    </div>
+
+                    <form>
+                        <div class="input_group">
+                            <input class="input_text" name='password' [type]="show ? 'text': 'password'" id='password'
+                                placeholder='Chave de acesso' />
+                            <span (click)="toggleShow()">
+                                <img src="/assets/icons/eye.svg" alt="" class="w-7">
+                            </span>
+                        </div>
+
+                        <div class="button">
+                            <button>Login</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

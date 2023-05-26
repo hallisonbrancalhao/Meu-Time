@@ -8,10 +8,15 @@ import { AuthService } from '../../core/service/authorization/auth.service';
 })
 export class AuthComponent implements OnInit {
   loginAuthorized = false;
+  show = false;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loginAuthorized = this.authService.getAuthStatus();
+  }
+
+  toggleShow() {
+    this.show = !this.show;
   }
 }

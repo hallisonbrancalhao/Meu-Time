@@ -1,3 +1,142 @@
 :host {
   display: block;
 }
+
+.login {
+  @apply flex h-screen bg-gray-300 overflow-hidden;
+
+  &__container {
+    @apply m-auto bg-slate-400 rounded-md lg:w-3/5 w-4/5 h-3/4 grid lg:grid-cols-2;
+
+    .images {
+      @apply bg-gradient-to-br from-blue-500 to-indigo-500 rounded-l-md;
+      position: relative;
+      overflow: hidden;
+      
+      .file {
+        background: url('/assets/images/file.png') no-repeat;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 15%;
+        width: 75%;
+        height: 75%;
+        background-size: cover;
+        background-position: 65%;
+        z-index: 1;
+      }
+      .ball_one {
+        background: url('/assets/images/ball.png') no-repeat;
+        position: absolute;
+        top: 65%;
+        left: 10%;
+        width: 180px;
+        height: 100px;
+        background-size: contain;
+        z-index: 2;
+        transform: translateX(290%);
+        animation: ball_one 5s ease-in 1s infinite;
+      }
+      
+      .ball_two {
+        background: url('/assets/images/ball.png') no-repeat;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        width: 200px;
+        height: 100px;
+        background-size: contain;
+        z-index: 0;
+        transform: translateX(290%);
+        animation: ball_two 7s ease-in 0.9s infinite;
+      }
+    }
+
+    .form-container {
+      @apply flex flex-col justify-evenly bg-gray-100;
+
+      &__box {
+        @apply  text-center py-10;
+
+        section {
+          @apply w-4/5 mx-auto flex flex-col gap-10;
+
+          h1 {
+            @apply text-gray-800 text-2xl my-5 font-bold;
+          }
+          p { 
+            @apply w-full mx-auto text-gray-500
+          }
+          img {
+            @apply mx-auto;
+          }
+
+          
+          form {
+            @apply flex flex-col gap-5;
+
+            .input_group {
+              @apply flex border rounded-xl;
+              position: relative;
+
+              span {
+                @apply flex items-center px-4;
+              }
+            }
+
+            .input_text {
+              @apply w-full py-4 px-6 border rounded-xl bg-slate-50;
+              @apply focus:outline-none border-none;
+            }
+
+            button {
+              @apply w-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md border border-transparent;
+              @apply py-3 text-gray-50 text-lg;
+            }
+
+            button:hover {
+              @apply bg-gradient-to-r from-gray-50 to-gray-100 border-blue-500;
+              @apply text-gray-700 border;
+            }
+
+            .button_custom {
+              @apply w-full border py-3 flex justify-center gap-2 hover:bg-gray-200;
+            }
+
+            .input_text + * {
+              @apply text-gray-400;
+            }
+
+            .input_text:focus + * {
+              @apply text-indigo-500;
+            }
+
+            .input_text:not([type='email']) ~ span:hover * {
+              cursor: pointer;
+              @apply text-indigo-500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes ball_one {
+  0% {
+    transform: translateX(290%);
+  }
+  100% {
+    transform: translateX(-250%);
+  }
+}
+
+@keyframes ball_two {
+  0% {
+    transform: translateX(160%);
+  }
+  100% {
+    transform: translateX(-250%);
+  }
+}
