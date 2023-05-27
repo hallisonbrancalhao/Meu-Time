@@ -16,6 +16,12 @@ export class AuthComponent implements OnInit {
     this.loginAuthorized = this.authService.getAuthStatus();
   }
 
+  login(value: string) {
+    this.authService.validateCredentials(value).subscribe((res) => {
+      this.loginAuthorized = res;
+    });
+  }
+
   toggleShow() {
     this.show = !this.show;
   }
