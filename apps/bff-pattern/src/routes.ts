@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import authController from './auth/auth.controller';
+import countyController from './country/county.controller';
 const routes = Router();
 
 routes.get('/hello', (req, res) => {
@@ -7,5 +8,6 @@ routes.get('/hello', (req, res) => {
 });
 
 routes.post('/auth', authController.validate);
+routes.post('/countries', countyController.search);
 
 export default routes;
