@@ -4,7 +4,12 @@ import { Request, Response } from 'express';
 class CountryController {
   async search(req: Request, res: Response) {
     const country = await new CountryService().search(req.body);
-    return res.json(country);
+    return res.send(country);
+  }
+
+  async getAll(req: Request, res: Response) {
+    const conties = await new CountryService().getAll();
+    return res.send(conties);
   }
 }
 
