@@ -1,0 +1,9 @@
+:host {
+    header {
+        @apply flex justify-center items-center py-10; 
+
+        img {
+            @apply w-32
+        }
+    }
+}
