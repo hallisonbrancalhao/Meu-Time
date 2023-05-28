@@ -10,5 +10,6 @@ routes.get('/hello', (req, res) => {
 routes.post('/auth', authController.validate);
 routes.post('/countries', countyController.search);
 routes.get('/countries', countyController.getAll);
+routes.get('/seasons', countyController.getSeasons);
 
 export default routes;
