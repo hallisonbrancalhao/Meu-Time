@@ -2,4 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* You can add global styles to this file, and also import other style files */
+html {
+    font-family: "Poppins", "Helvetica Neue", sans-serif;
+    @apply bg-gradient-to-l from-blue-500 to-indigo-500;
+}
+
+main {
+    @apply max-w-4xl my-0 mx-auto box-border
+}

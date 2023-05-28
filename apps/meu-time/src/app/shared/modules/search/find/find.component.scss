@@ -1,0 +1,12 @@
+:host{ 
+    form{
+        @apply flex justify-between items-center bg-[rgba(255,255,255,0.2)] py-4 px-5 rounded-xl;
+        input{
+            @apply w-[95%] bg-transparent border-none font-thin text-white focus:outline-0;
+
+            &::placeholder {
+                @apply font-thin text-white;
+            }
+        }
+    }
+}
