@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Country } from '../../../@types/countrie.type';
 import { Observable, tap } from 'rxjs';
+import { CountyDTO } from '../../../@types/dto.type';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountriesService {
   #countryUrl = 'http://localhost:3333/countries';
-
+  #seasonsUrl = 'http://localhost:3333/seasons';
   constructor(private http: HttpClient, private router: Router) {}
 
   getCountry(country: string): Observable<Country> {
@@ -18,5 +19,17 @@ export class CountriesService {
         res;
       })
     );
+  }
+
+  public getAll(): Observable<CountyDTO> {
+    return this.http
+      .get<CountyDTO>(this.#countryUrl)
+      .pipe(tap((res) => res.response));
+  }
+
+  public getSeasons(): Observable<CountyDTO> {
+    return this.http
+      .get<CountyDTO>(this.#seasonsUrl)
+      .pipe(tap((res) => res.response));
   }
 }
