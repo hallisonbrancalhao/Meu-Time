@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { FindComponent } from './find/find.component';
 import { HeaderComponent } from './header/header.component';
 import { SelectComponent } from './pages/select/select.component';
+import { SeasonsComponent } from './pages/seasons/seasons.component';
 import { SearchRoutingModule } from './search-routing.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SearchRoutingModule } from './search-routing.module';
     HeaderComponent,
     ListComponent,
     FindComponent,
+    SeasonsComponent,
   ],
   imports: [CommonModule, SearchRoutingModule],
 })
