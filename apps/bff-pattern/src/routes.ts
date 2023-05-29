@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import authController from './auth/auth.controller';
 import countyController from './country/county.controller';
+import leagueController from './league/league.controller';
 const routes = Router();
 
 routes.get('/hello', (req, res) => {
@@ -11,5 +12,6 @@ routes.post('/auth', authController.validate);
 routes.post('/countries', countyController.search);
 routes.get('/countries', countyController.getAll);
 routes.get('/seasons', countyController.getSeasons);
+routes.post('/leagues', leagueController.getBySeason);
 
 export default routes;

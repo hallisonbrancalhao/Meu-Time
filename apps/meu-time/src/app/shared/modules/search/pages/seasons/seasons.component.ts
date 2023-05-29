@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CountriesService } from '../../../../core/service/countries/countries.service';
-import { BehaviorSubject } from 'rxjs';
 import { Country } from '../../../../@types/countrie.type';
+import { ActivatedRoute } from '@angular/router';
+import { LeaguesService } from '../../../../core/service/leagues/leagues.service';
+import { League, LeagueResponse } from '../../../../@types/leagues.type';
+import { CountriesService } from '../../../../core/service/countries/countries.service';
+import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-seasons',
@@ -11,10 +13,14 @@ import { Country } from '../../../../@types/countrie.type';
 })
 export class SeasonsComponent implements OnInit {
   seasons = new BehaviorSubject<number[]>([]);
+  seasonSelected!: number;
   country = new BehaviorSubject<Country>({ code: '', name: '', flag: '' });
+  leagues = new BehaviorSubject<LeagueResponse[]>([]);
+
   constructor(
     private activeRoute: ActivatedRoute,
-    private coutriesService: CountriesService
+    private coutriesService: CountriesService,
+    private leagueService: LeaguesService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +39,10 @@ export class SeasonsComponent implements OnInit {
   }
 
   public setSeason(season: number) {
-    console.log(season);
+    this.leagueService
+      .getLeagues(this.activeRoute.snapshot.params['pais'], season)
+      .subscribe((res) => {
+        this.leagues.next(res);
+      });
   }
 }

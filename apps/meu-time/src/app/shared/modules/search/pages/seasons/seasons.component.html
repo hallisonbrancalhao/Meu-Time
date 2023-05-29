@@ -5,23 +5,37 @@
         <section class="county__names">
             <h1 class="slideInLeft">{{country.value.name}}</h1>
             <h2 class="slideInRight">{{country.value.code}}</h2>
+            <a [routerLink]="['/buscar']" class="">
+                Voltar
+            </a>
         </section>
         <section class="country__seasons">
-            <img [src]="country.value.flag" [alt]="country.value.name">
+            <img class="country__seasons__image" [src]="country.value.flag" [alt]="country.value.name">
+
             <article class="country__seasons__statistics">
+
                 <section>
                     <h3>Temporadas</h3>
-                    <p>selecione uma temporada</p>
                     <hr>
+                    <label for="season">
+                        selecione uma temporada
+                        <select [(ngModel)]="seasonSelected" (change)="setSeason(seasonSelected)" id="season">
+                            <option [value]="">Selecione uma temporada</option>
+                            <option *ngFor="let season of seasons | async" [value]="season">
+                                {{season}}
+                            </option>
+                        </select>
+                    </label>
+                </section>
+                <section>
+                    <h3 *ngIf="seasonSelected"><span>{{country.value.name}}</span> - {{seasonSelected}}</h3>
                     <ol>
-                        <li (click)="setSeason(season)" *ngFor="let season of seasons | async">
-                            {{season}}
+                        <li *ngFor="let league of leagues | async">
+                            <img [src]="league.league.logo" [alt]="league.league.name">
+                            {{league.league.name}}
                         </li>
                     </ol>
                 </section>
-                <a [routerLink]="['/buscar']" class="">
-                    Voltar
-                </a>
             </article>
         </section>
     </div>
