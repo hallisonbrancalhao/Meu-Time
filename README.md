@@ -28,9 +28,19 @@ npm start
 
 Este comando irá iniciar as duas aplicações em paralelo no servidor local.
 
+## 🔑 Chave de acesso
+
+Para acessar o sistema, a chave necessária é a seguinte:
+
+```
+4bdea2629dmsh648bf9a51aa0838p12d1ccjsn2ff47de99fff
+```
+
+<img src="tools/login.png" width="720px">
+
 ## 👨‍💻 Autor
 
-Hallison Brancalhão
+[Hallison Brancalhão](https://brancalhao.com.br)
 
 ## ✅ Git
 
