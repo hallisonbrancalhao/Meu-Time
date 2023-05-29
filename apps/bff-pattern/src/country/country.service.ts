@@ -12,12 +12,8 @@ export class CountryService {
       },
     };
 
-    await api
-      .request(options)
-      .then((response) => {
-        return response.data.response[0];
-      })
-      .catch((err) => console.log(err));
+    const country = await api.request(options);
+    return country.data.response[0];
   }
 
   async getAll() {

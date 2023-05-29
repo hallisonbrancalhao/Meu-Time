@@ -8,3 +8,7 @@ export interface CountyDTO {
   response: Array<Country>;
   results: number;
 }
+
+export interface SeasosnDTO {
+  response: number[];
+}

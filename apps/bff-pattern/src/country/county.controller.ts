@@ -1,10 +1,10 @@
+import { Country } from './@types/countrie.type';
 import { CountryService } from './country.service';
 import { Request, Response } from 'express';
 
 class CountryController {
   async search(req: Request, res: Response) {
-    const country = await new CountryService().search(req.body);
-    return res.send(country);
+    return res.send(await new CountryService().search(req.body));
   }
 
   async getAll(req: Request, res: Response) {
