@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 html {
-    font-family: "Poppins", "Helvetica Neue", sans-serif;
-    @apply bg-gradient-to-l from-blue-500 to-indigo-500;
+    font-family: 'Poppins', sans-serif;
+    @apply bg-slate-200;
 }
 
 main {
