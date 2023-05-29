@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { SelectComponent } from './pages/select/select.component';
 import { SeasonsComponent } from './pages/seasons/seasons.component';
 import { SearchRoutingModule } from './search-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { SearchRoutingModule } from './search-routing.module';
     FindComponent,
     SeasonsComponent,
   ],
-  imports: [CommonModule, SearchRoutingModule],
+  imports: [CommonModule, SearchRoutingModule, FormsModule],
 })
 export class SearchModule {}
