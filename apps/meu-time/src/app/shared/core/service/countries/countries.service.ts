@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Country } from '../../../@types/countrie.type';
 import { Observable, tap } from 'rxjs';
-import { CountyDTO } from '../../../@types/dto.type';
+import { CountyDTO, SeasosnDTO } from '../../../@types/dto.type';
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +27,7 @@ export class CountriesService {
       .pipe(tap((res) => res.response));
   }
 
-  public getSeasons(): Observable<CountyDTO> {
-    return this.http
-      .get<CountyDTO>(this.#seasonsUrl)
-      .pipe(tap((res) => res.response));
+  public getSeasons(): Observable<SeasosnDTO> {
+    return this.http.get<SeasosnDTO>(this.#seasonsUrl).pipe(tap((res) => res));
   }
 }

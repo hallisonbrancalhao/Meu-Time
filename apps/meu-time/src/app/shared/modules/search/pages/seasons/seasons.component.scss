@@ -1,0 +1,57 @@
+:host {
+	main {
+        @apply mt-10;
+
+		.county__names {
+            @apply relative flex items-start justify-center h-20 px-0 py-8 sm:mt-3;
+
+			h1 {
+                @apply text-white text-5xl capitalize sm:text-xl z-10;
+			}
+
+			h2 {
+                @apply absolute font-bold top-0 text-9xl text-blue-400 z-0 sm:top-9 sm:text-xl;
+			}
+
+			h1,
+			h2 {
+				-webkit-animation-fill-mode: none !important;
+				animation-fill-mode: none !important;
+			}
+		}
+
+		.country__seasons {
+
+            @apply relative;
+            
+			img {
+                @apply absolute top-[-90px] sm:top-[-80px] left-8 sm:left-0 max-w-[130px] sm:max-w-[100px] z-10;
+				-webkit-animation-fill-mode: none !important;
+				animation-fill-mode: none !important;
+			}
+
+			&__statistics {
+                @apply flex flex-wrap justify-between bg-white min-h-[44vh] sm:min-h-[57vh] mt-3 px-28 sm:pt-12 py-8 rounded-l-3xl;  
+				h3 {
+                    @apply mb-5 font-bold italic text-3xl text-gray-600;
+				}
+
+				p {
+					@apply mb-4
+				}
+
+				ol {
+					@apply flex-wrap mt-5 space-y-5;
+					li {
+                        @apply cursor-pointer flex px-2 py-2 text-center rounded-full bg-slate-200 hover:bg-blue-500 hover:text-white justify-center text-lg leading-[130%]
+					}
+				}
+
+				a {
+					@apply h-14 w-24 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-md border border-transparent text-center;
+					@apply py-3 text-gray-50 text-lg;
+				}
+			}
+		}
+    }
+}

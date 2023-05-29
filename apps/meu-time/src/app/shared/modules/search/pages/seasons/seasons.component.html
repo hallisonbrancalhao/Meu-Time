@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<main>
+    <div>
+        <section class="county__names">
+            <h1 class="slideInLeft">{{country.value.name}}</h1>
+            <h2 class="slideInRight">{{country.value.code}}</h2>
+        </section>
+        <section class="country__seasons">
+            <img [src]="country.value.flag" [alt]="country.value.name">
+            <article class="country__seasons__statistics">
+                <section>
+                    <h3>Temporadas</h3>
+                    <p>selecione uma temporada</p>
+                    <hr>
+                    <ol>
+                        <li (click)="setSeason(season)" *ngFor="let season of seasons | async">
+                            {{season}}
+                        </li>
+                    </ol>
+                </section>
+                <a [routerLink]="['/buscar']" class="">
+                    Voltar
+                </a>
+            </article>
+        </section>
+    </div>
+</main>

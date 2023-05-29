@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { SelectComponent } from './pages/select/select.component';
 import { TeamComponent } from './pages/team/team.component';
+import { SelectComponent } from './pages/select/select.component';
+import { SeasonsComponent } from './pages/seasons/seasons.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
     component: SelectComponent,
+  },
+  {
+    path: 'temporada/:pais',
+    component: SeasonsComponent,
   },
   {
     path: 'team',
