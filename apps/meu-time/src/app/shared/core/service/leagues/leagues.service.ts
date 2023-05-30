@@ -2,7 +2,7 @@ import { tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Team, TeamResponse } from '../../../@types/teams.type';
-import { LeagueResponse, Season } from '../../../@types/leagues.type';
+import { League, LeagueResponse, Season } from '../../../@types/leagues.type';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from '../../../@types/countrie.type';
 
@@ -45,7 +45,9 @@ export class LeaguesService {
       );
   }
 
-  setTeam(country: Country, season: number, team: Team) {
-    this.router.navigate([`buscar/${country.code}/${season}/${team.id}`]);
+  setTeam(country: Country, season: number, team: Team, league: League) {
+    this.router.navigate([
+      `buscar/${country.code}/${season}/${team.id}/${league.id}`,
+    ]);
   }
 }

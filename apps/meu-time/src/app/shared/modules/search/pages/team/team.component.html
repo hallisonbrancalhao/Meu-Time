@@ -1,34 +1,43 @@
 <app-header></app-header>
 
-<main>
-    <h2>Lista de Jogadores</h2>
-    <ul *ngFor="let player of squad$ | async" class="max-w-md divide-y divide-gray-20">
-        <li class="pb-3 sm:pb-4">
-            <div class="flex items-center space-x-4">
-                <div class="flex-shrink-0">
-                    <img class="w-8 h-8 rounded-full" [src]="player.photo" alt="Neil image">
-                </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-medium text-gray-900 truncate">
-                        {{player.name}} | {{player.age}}
-                    </p>
-                    <p class="text-sm text-gray-500 truncate">
-                        {{player.position}} | {{player.number}}
-                    </p>
-                </div>
-                <div class="inline-flex items-center text-base font-semibold text-gray-900">
-                    $320
-                </div>
+<main class="bg-slate-50 p-10 rounded-xl">
+    <div class="flex items-center justify-between border-b-2 border-gray-400 my-5 pb-10">
+        <h1 class="text-5xl font-bold">{{this.team$.value.name}}</h1>
+        <img [src]="this.team$.value.logo" [alt]="this.team$.value.name">
+    </div>
+    <div class="flex justify-between">
+        <div class="players">
+            <h2 class="text-2xl pb-8">Lista de Jogadores</h2>
+            <div class="">
+                <ul *ngFor="let player of squad$ | async" class="max-w-xs divide-y divide-gray-20">
+                    <li class="pb-3 sm:pb-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                <img class="w-8 h-8 rounded-full" [src]="player.photo" [alt]="player.name">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-gray-900 truncate">
+                                    {{player.name}}
+                                </p>
+                                <p class="text-sm text-gray-500 truncate">
+                                    {{player.position}} | Age: {{player.age}}
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900">
+                                {{player.number}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </li>
-    </ul>
+        </div>
+        <div class="statistcs">
+            <h2 class="text-2xl pb-8">Estatísticas</h2>
+            <div class="">
+                <h3>Formação mais utilizada:</h3>
+                <p>{{this.formation$ | async}}</p>
+            </div>
+        </div>
+    </div>
 
 </main>
-
-<!-- 
-id: number;
-name: string;
-age: number;
-number: number | null;
-position: Position;
-photo: string; -->

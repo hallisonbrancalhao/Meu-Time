@@ -15,6 +15,7 @@ routes.get('/countries', countyController.getAll);
 routes.get('/seasons', countyController.getSeasons);
 routes.post('/leagues', leagueController.getBySeason);
 routes.post('/teams', leagueController.getTeams);
-routes.post('/teams/squad', teamController.getSquad);
+routes.post('/teams/squad', teamController.getStatisctics);
+routes.get('/teams/squad/:teamId', teamController.getSquad);
 
 export default routes;

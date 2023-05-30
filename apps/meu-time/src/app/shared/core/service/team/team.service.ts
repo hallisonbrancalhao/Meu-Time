@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Player } from '../../../@types/squad.dto.types';
-import { tap } from 'rxjs';
+import { Player, Response } from '../../../@types/squad.dto.types';
+import { Observable, tap } from 'rxjs';
+import { StatisticsDTO } from '../../../@types/statistics.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -10,21 +11,23 @@ import { tap } from 'rxjs';
 export class TeamService {
   #squadUrl = 'http://localhost:3333/teams/squad';
 
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private activeRoute: ActivatedRoute
-  ) {}
+  constructor(private http: HttpClient) {}
 
-  getSquad(teamId: number) {
-    return this.http
-      .post<Player[]>(this.#squadUrl, {
-        teamId,
+  getSquad(teamId: number): Observable<Response[]> {
+    return this.http.get<Response[]>(`${this.#squadUrl}/${teamId}`).pipe(
+      tap((res) => {
+        res;
       })
-      .pipe(
-        tap((res) => {
-          res;
-        })
-      );
+    );
+  }
+
+  getStatistics(data: StatisticsDTO): Observable<string> {
+    return this.http
+      .post<string>(`${this.#squadUrl}`, {
+        leagueId: data.leagueId,
+        seasonId: data.seasonId,
+        teamId: data.teamId,
+      })
+      .pipe(tap((res) => res));
   }
 }

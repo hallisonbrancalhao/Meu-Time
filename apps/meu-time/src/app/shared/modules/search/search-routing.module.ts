@@ -14,7 +14,7 @@ const routes: Routes = [
     component: SeasonsComponent,
   },
   {
-    path: ':pais/:temporada/:time',
+    path: ':pais/:temporada/:time/:liga',
     component: TeamComponent,
   },
 ];
