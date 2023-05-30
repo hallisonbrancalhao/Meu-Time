@@ -61,6 +61,11 @@ export class SeasonsComponent implements OnInit {
   }
 
   public setTeam(team: Team) {
-    this.leagueService.setTeam(this.country.value, this.seasonSelected, team);
+    this.leagueService.setTeam(
+      this.country.value,
+      this.seasonSelected,
+      team,
+      this.league
+    );
   }
 }
