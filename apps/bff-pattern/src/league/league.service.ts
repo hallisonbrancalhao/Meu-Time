@@ -1,19 +1,13 @@
 import { api } from '../api/axios';
 import { LeagueParams } from './@types/params.type';
+import { TeamResponse, TeamsDTO } from './@types/teams.type';
 
 export class LeagueService {
   async search(data: LeagueParams) {
-    const options = {
-      method: 'GET',
-      url: `https://api-football-v1.p.rapidapi.com/v3/leagues?country=${data.country}&season=${data.season}`,
-      headers: {
-        'X-RapidAPI-Key': '4bdea2629dmsh648bf9a51aa0838p12d1ccjsn2ff47de99fff',
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
-    };
-
-    // const league = await api.request(options);
-    // return league.data.response;
+    // const teams = await api.get(
+    //   `leagues?country=${data.country}&season=${data.season}`
+    // );
+    // return teams.data.response;
 
     return [
       {
@@ -163,6 +157,76 @@ export class LeagueService {
             },
           },
         ],
+      },
+    ];
+  }
+
+  async getTeams(data: TeamsDTO): Promise<TeamResponse[]> {
+    // const teams = await api.get(
+    //   `teams?league=${data.league}&season=${data.season}`
+    // );
+    // return teams.data.response;
+
+    return [
+      {
+        team: {
+          id: 33,
+          name: 'Manchester United',
+          code: 'MUN',
+          country: 'England',
+          founded: 1878,
+          national: false,
+          logo: 'https://media-1.api-sports.io/football/teams/33.png',
+        },
+        venue: {
+          id: 556,
+          name: 'Old Trafford',
+          address: 'Sir Matt Busby Way',
+          city: 'Manchester',
+          capacity: 76212,
+          surface: 'grass',
+          image: 'https://media-3.api-sports.io/football/venues/556.png',
+        },
+      },
+      {
+        team: {
+          id: 34,
+          name: 'Newcastle',
+          code: 'NEW',
+          country: 'England',
+          founded: 1892,
+          national: false,
+          logo: 'https://media-1.api-sports.io/football/teams/34.png',
+        },
+        venue: {
+          id: 562,
+          name: "St. James' Park",
+          address: 'St. James&apos; Street',
+          city: 'Newcastle upon Tyne',
+          capacity: 52389,
+          surface: 'grass',
+          image: 'https://media-2.api-sports.io/football/venues/562.png',
+        },
+      },
+      {
+        team: {
+          id: 36,
+          name: 'Fulham',
+          code: 'FUL',
+          country: 'England',
+          founded: 1879,
+          national: false,
+          logo: 'https://media-3.api-sports.io/football/teams/36.png',
+        },
+        venue: {
+          id: 535,
+          name: 'Craven Cottage',
+          address: 'Stevenage Road',
+          city: 'London',
+          capacity: 25700,
+          surface: 'grass',
+          image: 'https://media-3.api-sports.io/football/venues/535.png',
+        },
       },
     ];
   }

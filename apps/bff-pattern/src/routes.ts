@@ -2,6 +2,7 @@ import { Router } from 'express';
 import authController from './auth/auth.controller';
 import countyController from './country/county.controller';
 import leagueController from './league/league.controller';
+import teamController from './team/team.controller';
 const routes = Router();
 
 routes.get('/hello', (req, res) => {
@@ -13,5 +14,7 @@ routes.post('/countries', countyController.search);
 routes.get('/countries', countyController.getAll);
 routes.get('/seasons', countyController.getSeasons);
 routes.post('/leagues', leagueController.getBySeason);
+routes.post('/teams', leagueController.getTeams);
+routes.post('/teams/squad', teamController.getSquad);
 
 export default routes;
