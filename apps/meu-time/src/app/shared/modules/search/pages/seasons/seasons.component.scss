@@ -40,7 +40,7 @@
 				animation-fill-mode: none !important;
 			}
 
-			&__statistics {
+			&__statistics, &__teams {
                 @apply justify-between bg-white min-h-[44vh] sm:min-h-[57vh] mt-3 px-28 sm:px-4 sm:pt-12 py-8 rounded-l-3xl;  
 				h3 {
 					span {

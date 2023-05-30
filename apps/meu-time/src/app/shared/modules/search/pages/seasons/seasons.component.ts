@@ -1,10 +1,11 @@
 import { Country } from '../../../../@types/countrie.type';
 import { ActivatedRoute } from '@angular/router';
 import { LeaguesService } from '../../../../core/service/leagues/leagues.service';
-import { League, LeagueResponse } from '../../../../@types/leagues.type';
+import { BehaviorSubject } from 'rxjs';
 import { CountriesService } from '../../../../core/service/countries/countries.service';
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Team, TeamResponse } from '../../../../@types/teams.type';
+import { League, LeagueResponse } from '../../../../@types/leagues.type';
 
 @Component({
   selector: 'app-seasons',
@@ -13,9 +14,12 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SeasonsComponent implements OnInit {
   seasons = new BehaviorSubject<number[]>([]);
-  seasonSelected!: number;
   country = new BehaviorSubject<Country>({ code: '', name: '', flag: '' });
   leagues = new BehaviorSubject<LeagueResponse[]>([]);
+  seasonSelected!: number;
+  isSetLeague = false;
+  league!: League;
+  teams!: TeamResponse[];
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -44,5 +48,19 @@ export class SeasonsComponent implements OnInit {
       .subscribe((res) => {
         this.leagues.next(res);
       });
+  }
+
+  public selectLeague(value: League): void {
+    this.isSetLeague = true;
+    this.league = value;
+    this.leagueService
+      .getTeams(this.league.id, this.seasonSelected)
+      .subscribe((res) => {
+        this.teams = res;
+      });
+  }
+
+  public setTeam(team: Team) {
+    this.leagueService.setTeam(this.country.value, this.seasonSelected, team);
   }
 }

@@ -10,13 +10,12 @@ const routes: Routes = [
     component: SelectComponent,
   },
   {
-    path: 'temporada/:pais',
+    path: ':pais',
     component: SeasonsComponent,
   },
   {
-    path: 'team',
+    path: ':pais/:temporada/:time',
     component: TeamComponent,
-    children: [{ path: ':id', component: TeamComponent }],
   },
 ];
 
@@ -25,3 +24,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class SearchRoutingModule {}
+
+// http://localhost:4200/buscar/brazil/2020/flamengo

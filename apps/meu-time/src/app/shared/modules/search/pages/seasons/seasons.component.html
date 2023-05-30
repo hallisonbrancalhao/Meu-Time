@@ -12,8 +12,7 @@
         <section class="country__seasons">
             <img class="country__seasons__image" [src]="country.value.flag" [alt]="country.value.name">
 
-            <article class="country__seasons__statistics">
-
+            <article *ngIf="!isSetLeague" class="country__seasons__statistics">
                 <section>
                     <h3>Temporadas</h3>
                     <hr>
@@ -30,11 +29,41 @@
                 <section>
                     <h3 *ngIf="seasonSelected"><span>{{country.value.name}}</span> - {{seasonSelected}}</h3>
                     <ol>
-                        <li *ngFor="let league of leagues | async">
+                        <li (click)="selectLeague(league.league)" *ngFor="let league of leagues | async">
                             <img [src]="league.league.logo" [alt]="league.league.name">
                             {{league.league.name}}
                         </li>
                     </ol>
+                </section>
+            </article>
+
+            <article *ngIf="isSetLeague" class="country__seasons__teams">
+                <section>
+                    <h3>Times participantes | {{this.league.name}}</h3>
+                    <hr>
+                    selecione um time para mais detalhes
+
+                    <div class="flow-root">
+                        <ul *ngFor="let team of teams" role="list" class="divide-y divide-gray-200">
+                            <li (click)="setTeam(team.team)" class="py-3 sm:py-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="flex-shrink-0">
+                                        <img class="w-8 h-8 rounded-full" [src]="team.team.logo" [alt]="team.team.name">
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                            {{team.team.name}}
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate">
+                                            {{team.team.code}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
                 </section>
             </article>
         </section>
