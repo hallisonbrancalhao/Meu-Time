@@ -1,11 +1,11 @@
 :host{ 
     form{
-        @apply flex justify-between items-center bg-[rgba(255,255,255,0.2)] py-4 px-5 rounded-xl;
+        @apply max-w-md ml-1 flex justify-between bg-slate-100 pr-4 items-center rounded-xl;
         input{
-            @apply w-[95%] bg-transparent border-none font-thin text-white focus:outline-0;
+            @apply w-11/12 bg-white rounded-l-xl border-none py-4 px-5  font-normal text-slate-700 focus:outline-slate-300;
 
             &::placeholder {
-                @apply font-thin text-white;
+                @apply font-normal;
             }
         }
     }
