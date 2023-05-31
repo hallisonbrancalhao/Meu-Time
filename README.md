@@ -41,13 +41,10 @@ Para acessar o sistema, a chave necessária é a seguinte:
 
 ## 👨‍💻 Autor
 
-<video url=(https://youtu.be/_ETVBhnFtK0)>
-
-<video width="400" controls>
-  <source src="https://youtu.be/_ETVBhnFtK0" type="video/mp4">
-Usando o aplicativo
-</video>
-
 [Hallison Brancalhão](https://brancalhao.com.br)
 
 💻🚀
+
+## Vídeo Demonstrativo
+
+[![Assista ao vídeo demonstrativo](https://img.youtube.com/vi/_ETVBhnFtK0/maxresdefault.jpg)](https://youtu.be/_ETVBhnFtK0)
