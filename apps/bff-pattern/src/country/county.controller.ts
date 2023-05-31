@@ -1,4 +1,3 @@
-import { Country } from './@types/countrie.type';
 import { CountryService } from './country.service';
 import { Request, Response } from 'express';
 

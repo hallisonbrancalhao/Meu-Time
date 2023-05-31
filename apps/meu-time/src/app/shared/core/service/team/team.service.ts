@@ -1,9 +1,8 @@
+import { Response } from '../../../@types/squad.dto.types';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Player, Response } from '../../../@types/squad.dto.types';
-import { Observable, map, tap } from 'rxjs';
 import { StatisticsDTO } from '../../../@types/statistics.dto';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +12,8 @@ export class TeamService {
 
   constructor(private http: HttpClient) {}
 
-  getSquad(teamId: number): Observable<Response[]> {
-    return this.http.get<Response[]>(`${this.#squadUrl}/${teamId}`).pipe(
+  getSquad(teamId: number): Observable<Response> {
+    return this.http.get<Response>(`${this.#squadUrl}/${teamId}`).pipe(
       tap((res) => {
         res;
       })
@@ -29,5 +28,9 @@ export class TeamService {
           return res;
         })
       );
+  }
+
+  getGoalsByMinutes(data: StatisticsDTO): Observable<object> {
+    return this.http.post(`${this.#squadUrl}/goals`, data).pipe((res) => res);
   }
 }
