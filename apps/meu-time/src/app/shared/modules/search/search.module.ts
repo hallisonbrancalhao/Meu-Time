@@ -9,6 +9,8 @@ import { SelectComponent } from './pages/select/select.component';
 import { SeasonsComponent } from './pages/seasons/seasons.component';
 import { SearchRoutingModule } from './search-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ChartComponent } from './chart/chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     ListComponent,
     FindComponent,
     SeasonsComponent,
+    ChartComponent,
   ],
-  imports: [CommonModule, SearchRoutingModule, FormsModule],
+  imports: [CommonModule, SearchRoutingModule, FormsModule, NgxChartsModule],
 })
 export class SearchModule {}
