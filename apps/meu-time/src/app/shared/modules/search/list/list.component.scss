@@ -1,0 +1,23 @@
+$padding: 1.25rem;
+
+:host {
+    .listagem{
+        @apply flex flex-wrap py-5;
+        .country {
+            @apply relative mx-1 flex items-center bg-white w-72 h-[calc(9.8125rem-2.5rem)] p-5 mb-3 rounded-xl;
+            &__status {
+                color: var(--primary-color);
+                h2 {
+                    @apply text-xl italic font-bold capitalize;
+                }
+            }
+
+            &__image {
+            @apply absolute flex items-center justify-center h-20 w-24  bottom-5 right-5;
+                img{
+                    @apply w-20
+                }
+            }
+        }
+    }
+}

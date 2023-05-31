@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: 'Poppins', sans-serif;
+    @apply bg-gradient-to-r from-slate-200 to-slate-300;
+}
+
+main {
+    @apply max-w-4xl my-0 mx-auto box-border
+}

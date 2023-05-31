@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<main>
+    <div>
+        <section class="county__names">
+            <h1 class="slideInLeft">{{country.value.name}}</h1>
+            <h2 class="slideInRight">{{country.value.code}}</h2>
+            <a [routerLink]="['/buscar']" class="">
+                Voltar
+            </a>
+        </section>
+        <section class="country__seasons">
+            <img class="country__seasons__image" [src]="country.value.flag" [alt]="country.value.name">
+
+            <article *ngIf="!isSetLeague" class="country__seasons__statistics">
+                <section>
+                    <h3>Temporadas</h3>
+                    <hr>
+                    <label for="season">
+                        selecione uma temporada
+                        <select [(ngModel)]="seasonSelected" (change)="setSeason(seasonSelected)" id="season">
+                            <option [value]="">Selecione uma temporada</option>
+                            <option *ngFor="let season of seasons | async" [value]="season">
+                                {{season}}
+                            </option>
+                        </select>
+                    </label>
+                </section>
+                <section>
+                    <h3 *ngIf="seasonSelected"><span>{{country.value.name}}</span> - {{seasonSelected}}</h3>
+                    <ol>
+                        <li (click)="selectLeague(league.league)" *ngFor="let league of leagues | async">
+                            <img [src]="league.league.logo" [alt]="league.league.name">
+                            {{league.league.name}}
+                        </li>
+                    </ol>
+                </section>
+            </article>
+
+            <article *ngIf="isSetLeague" class="country__seasons__teams">
+                <section>
+                    <h3>Times participantes | {{this.league.name}}</h3>
+                    <hr>
+                    <p>selecione um time para mais detalhes</p>
+
+
+                    <div class="grid-flow-col">
+                        <ul *ngFor="let team of teams" role="list"
+                            class="divide-y divide-gray-200 w-[30%] sm:w-full mx-2 py-2 inline-block">
+                            <li (click)="setTeam(team.team)"
+                                class="py-3 px-2 border-2 rounded-2xl border-cyan-200 sm:py-4 hover:bg-slate-100 cursor-pointer">
+                                <div class="flex items-center space-x-2 border-1 rounded">
+                                    <div class="flex-shrink-0">
+                                        <img class="w-8 h-8 rounded-full" [src]="team.team.logo" [alt]="team.team.name">
+                                    </div>
+                                    <div class="flex-1 min-w-0 ">
+                                        <p class="text-sm font-medium text-gray-900 truncate">
+                                            {{team.team.name}}
+                                        </p>
+                                        <p class="text-sm text-gray-500 truncate">
+                                            {{team.team.code}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                </section>
+            </article>
+        </section>
+    </div>
+</main>

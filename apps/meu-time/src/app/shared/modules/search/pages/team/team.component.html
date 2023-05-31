@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<main>
+    <div class="topo">
+        <h1>{{this.team$.value.name}}</h1>
+        <img [src]="this.team$.value.logo" [alt]="this.team$.value.name">
+    </div>
+    <div class="content">
+        <h2>Estatísticas</h2>
+
+        <div class="goals_statistics">
+            <h3>Estatísticas de gols:</h3>
+            <div>
+                <app-chart></app-chart>
+            </div>
+        </div>
+        <div class="squad_statistics">
+            <div>
+                <h3>Formação mais utilizada</h3>
+                <p>{{this.formation$ | async}}</p>
+            </div>
+
+        </div>
+
+        <div class="players_statistics">
+            <h3>Lista de jogadores</h3>
+            <div>
+                <ul>
+                    <li *ngFor="let player of squad$ | async">
+                        <div class="card__player">
+                            <div class="card__player__image">
+                                <img [src]="player.photo" [alt]="player.name">
+                            </div>
+                            <div class="card__player__description">
+                                <p class="card__player__description__name">
+                                    {{player.name}}
+                                </p>
+                                <p class="card__player__description__about">
+                                    {{player.position}} | Age: {{player.age}}
+                                </p>
+                            </div>
+                            <div class="card__player__number">
+                                {{player.number}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,15 @@
+<app-find (emitSearch)="getSearch($event)"></app-find>
+
+<section class="listagem">
+    <ng-template ngFor let-country [ngForOf]="filteredCountries$ | async">
+        <a class="country" [routerLink]="[country.name]" *ngIf="country.name">
+            <section class="country__status">
+                <h2 class="">{{country.name}}</h2>
+            </section>
+
+            <section class="country__image">
+                <img class="" [src]="country.flag" [alt]="country.name">
+            </section>
+        </a>
+    </ng-template>
+</section>
