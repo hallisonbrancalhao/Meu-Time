@@ -1,3 +1,4 @@
+import { GoalsMinute } from '../../../../@types/goals.types';
 import { TeamService } from '../../../../core/service/team/team.service';
 import { Player, Team } from '../../../../@types/squad.dto.types';
 import { ActivatedRoute } from '@angular/router';
@@ -17,6 +18,7 @@ export class TeamComponent implements OnInit {
     logo: '',
   });
   formation$ = new BehaviorSubject<string>('');
+  dataGoals$ = new BehaviorSubject<GoalsMinute | object>({});
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -27,8 +29,8 @@ export class TeamComponent implements OnInit {
     this.teamService
       .getSquad(this.activeRoute.snapshot.params['time'])
       .subscribe((res) => {
-        this.squad$.next(res[0].players);
-        this.team$.next(res[0].team);
+        this.squad$.next(res.players);
+        this.team$.next(res.team);
       });
     this.teamService
       .getStatistics({

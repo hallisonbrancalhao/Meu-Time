@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { AuthComponent } from './shared/components/auth/auth.component';
 import { AuthGuard } from './shared/core/guards/can-active.guard';
+import { AuthComponent } from './shared/components/auth/auth.component';
 
 export const appRoutes: Route[] = [
   {
