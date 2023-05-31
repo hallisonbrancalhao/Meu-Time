@@ -1,0 +1,67 @@
+main {
+    @apply bg-slate-100 p-10 rounded-xl;
+
+    .topo {
+       @apply flex items-center justify-between border-b-2 border-gray-400 my-5 pb-10;
+
+       h1{
+        @apply text-5xl font-bold;
+       }
+    }
+
+    .content {
+        @apply flex-1 space-y-10 justify-between;
+
+        h2{
+            @apply text-2xl pb-8;
+        }
+
+        .goals_statistics{
+            div{
+                @apply sm:w-96 overflow-scroll;
+            }
+        }
+
+        .squad_statistics{
+            p{
+                @apply px-4 py-5 bg-white max-w-md rounded-xl text-center;
+            }
+        }
+
+        .players_statistics{
+            ul{
+                @apply flex flex-wrap py-5;
+
+                li{
+                    @apply relative mx-1 flex items-center bg-white w-64 p-2 mb-3 rounded-xl justify-center;
+                    .card__player{
+                        @apply flex items-center space-x-4 py-3 sm:pb-4;
+
+                        &__image {
+                            @apply  flex-shrink-0;
+                            img{
+                                @apply w-8 h-8 rounded-full;
+                            }
+                        }
+                        
+                        &__description {
+                            @apply flex-1 min-w-0;
+
+                            &__name {
+                                @apply text-sm font-medium text-gray-900 truncate;
+                            }
+                            &__about{
+                               @apply  text-xs text-gray-500 truncate; 
+                            }
+                        }
+
+                        &__number{
+                            @apply inline-flex items-center text-base font-semibold text-gray-900;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
