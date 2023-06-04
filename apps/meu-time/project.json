@@ -8,15 +8,24 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/meu-time",
         "index": "apps/meu-time/src/index.html",
         "main": "apps/meu-time/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/meu-time/tsconfig.app.json",
-        "assets": ["apps/meu-time/src/favicon.ico", "apps/meu-time/src/assets"],
-        "styles": ["apps/meu-time/src/styles.scss"],
+        "assets": [
+          "apps/meu-time/src/favicon.ico",
+          "apps/meu-time/src/assets"
+        ],
+        "styles": [
+          "apps/meu-time/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -69,14 +78,21 @@
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/meu-time/**/*.ts", "apps/meu-time/**/*.html"]
+        "lintFilePatterns": [
+          "apps/meu-time/**/*.ts",
+          "apps/meu-time/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/meu-time/jest.config.ts",
         "passWithNoTests": true

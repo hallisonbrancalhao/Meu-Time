@@ -24,5 +24,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class SearchRoutingModule {}
-
-// http://localhost:4200/buscar/brazil/2020/flamengo
