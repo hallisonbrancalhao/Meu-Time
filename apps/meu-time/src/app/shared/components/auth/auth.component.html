@@ -14,16 +14,54 @@
                         <p>Insira a sua credencial para acessar o sistema</p>
                     </div>
 
-                    <form>
-                        <div class="input_group">
-                            <input #password class="input_text" name='password' [type]="show ? 'text': 'password'"
-                                id='password' placeholder='Chave de acesso' />
+                    <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+                        <div class="input_group" [ngClass]="{'border-red-500': 
+                                authForm.errors || 
+                                authForm.get('password')?.invalid && (authForm.get('password')?.touched ||
+                                authForm.get('password')?.dirty)}">
+                            <input formControlName="password" class="input_text" name='password'
+                                [type]="show ? 'text': 'password'" id='password' placeholder='Chave de acesso' />
                             <span (click)="toggleShow()">
                                 <img src="/assets/icons/eye.svg" alt="" class="w-7">
                             </span>
                         </div>
 
-                        <div class="button" (click)="login(password.value)">
+                        <p>Selecione uma API</p>
+                        <div class="w-full flex justify-center">
+                            <ul [ngClass]="{'border-red-500': 
+                                authForm.get('apiType')?.invalid && (authForm.get('apiType')?.touched || 
+                                authForm.get('apiType')?.dirty)}"
+                                class="w-72 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg">
+                                <li class="w-full border-b border-gray-200 rounded-t-lg pr-6">
+                                    <div class="flex items-center pl-3">
+                                        <input formControlName="apiType" type="radio" value="mock"
+                                            class="w-6 h-6 text-blue-600 bg-gray-100 focus:ring-blue-500" [ngClass]="{'border-red-500': 
+                                                authForm.get('apiType')?.invalid && (authForm.get('apiType')?.touched ||
+                                                authForm.get('apiType')?.dirty), 'border-gray-300': 
+                                                authForm.get('apiType')?.valid}" />
+                                        <label for="api-type-mock"
+                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Api mock
+                                        </label>
+                                        <span>
+                                            <img src="/assets/icons/nest.svg" alt="" class="w-10">
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="w-full border-b border-gray-200 rounded-t-lg pr-6">
+                                    <div class="flex items-center pl-3">
+                                        <input formControlName="apiType" type="radio" value="rest"
+                                            class="w-6 h-6 text-blue-600 bg-gray-100 focus:ring-blue-500" />
+                                        <label for="api-type-rest"
+                                            class="w-full py-3 ml-2 text-sm font-medium text-gray-900">Api REST
+                                        </label>
+                                        <span>
+                                            <img src="/assets/images/node.png" alt="" class="w-10">
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="button">
                             <button>Login</button>
                         </div>
                     </form>
