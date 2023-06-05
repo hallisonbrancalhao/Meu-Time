@@ -10,7 +10,7 @@ export class CountryService {
     const country: Country[] = this.getAll().response.filter(
       (country) => country.name === value.name
     );
-    return country;
+    return country[0];
   }
 
   getAll() {

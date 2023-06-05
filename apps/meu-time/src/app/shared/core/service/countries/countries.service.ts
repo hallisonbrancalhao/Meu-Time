@@ -9,17 +9,18 @@ import { CountyDTO, SeasosnDTO } from '../../../@types/dto.type';
   providedIn: 'root',
 })
 export class CountriesService {
-  #countryUrl = 'countries';
-  #seasonsUrl = 'seasons';
+  #countryUrl = '/countries';
+  #seasonsUrl = '/seasons';
   #baseUrl = 'http://localhost:';
   #port!: number | string | null;
+
   constructor(private http: HttpClient, private router: Router) {
     this.getApiPort();
   }
 
   getCountry(country: string): Observable<Country> {
     return this.http
-      .post<Country>(`${this.#baseUrl}${this.#port}/${this.#countryUrl}`, {
+      .post<Country>(`${this.#baseUrl}${this.#port}${this.#countryUrl}`, {
         name: country,
       })
       .pipe(
@@ -29,20 +30,19 @@ export class CountriesService {
       );
   }
 
-  private getApiPort() {
-    this.#port = localStorage.getItem('port');
-    if (this.#port) this.#port = Math.sqrt(Math.sqrt(parseInt(this.#port)));
-  }
-
   public getAll(): Observable<CountyDTO> {
     return this.http
-      .get<CountyDTO>(`${this.#baseUrl}${this.#port}/${this.#countryUrl}`)
+      .get<CountyDTO>(`${this.#baseUrl}${this.#port}${this.#countryUrl}`)
       .pipe(tap((res) => res.response));
   }
 
   public getSeasons(): Observable<SeasosnDTO> {
     return this.http
-      .get<SeasosnDTO>(`${this.#baseUrl}${this.#port}/${this.#seasonsUrl}`)
+      .get<SeasosnDTO>(`${this.#baseUrl}${this.#port}${this.#seasonsUrl}`)
       .pipe(tap((res) => res));
+  }
+
+  private getApiPort() {
+    this.#port = localStorage.getItem('port');
   }
 }

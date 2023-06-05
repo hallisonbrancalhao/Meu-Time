@@ -7,7 +7,7 @@ import { Body, Controller, Get, Post } from '@nestjs/common';
 export class CountryController {
   constructor(private countryService: CountryService) {}
   @Post('countries')
-  search(@Body() value: DtoSearch): Country[] | void {
+  search(@Body() value: DtoSearch): Country | void {
     return this.countryService.search(value);
   }
 

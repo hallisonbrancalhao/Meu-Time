@@ -8,21 +8,30 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class TeamService {
-  #squadUrl = 'http://localhost:3333/teams/squad';
+  #squadUrl = '/teams/squad';
 
-  constructor(private http: HttpClient) {}
+  #baseUrl = 'http://localhost:';
+  #port!: number | string | null;
+
+  constructor(private http: HttpClient) {
+    this.getApiPort();
+  }
 
   getSquad(teamId: number): Observable<Response> {
-    return this.http.get<Response>(`${this.#squadUrl}/${teamId}`).pipe(
-      tap((res) => {
-        res;
-      })
-    );
+    return this.http
+      .get<Response>(`${this.#baseUrl}${this.#port}${this.#squadUrl}/${teamId}`)
+      .pipe(
+        tap((res) => {
+          res;
+        })
+      );
   }
 
   getStatistics(data: StatisticsDTO): Observable<string> {
     return this.http
-      .post(`${this.#squadUrl}`, data, { responseType: 'text' })
+      .post(`${this.#baseUrl}${this.#port}${this.#squadUrl}`, data, {
+        responseType: 'text',
+      })
       .pipe(
         tap((res) => {
           return res;
@@ -31,6 +40,12 @@ export class TeamService {
   }
 
   getGoalsByMinutes(data: StatisticsDTO): Observable<object> {
-    return this.http.post(`${this.#squadUrl}/goals`, data).pipe((res) => res);
+    return this.http
+      .post(`${this.#baseUrl}${this.#port}${this.#squadUrl}/goals`, data)
+      .pipe((res) => res);
+  }
+
+  private getApiPort() {
+    this.#port = localStorage.getItem('port');
   }
 }

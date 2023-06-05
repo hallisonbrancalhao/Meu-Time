@@ -7,8 +7,8 @@ import { Observable, BehaviorSubject, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly REST_PORT = Math.pow(3333, 4);
-  private readonly MOCK_PORT = Math.pow(3030, 4);
+  private readonly REST_PORT = 3333;
+  private readonly MOCK_PORT = 3030;
   private authStatus = new BehaviorSubject<boolean>(false);
 
   #port!: number;
@@ -23,12 +23,9 @@ export class AuthService {
     this.setApiPort(value.apiType);
 
     return this.http
-      .post<boolean>(
-        `${this.#baseUrl}${Math.sqrt(Math.sqrt(this.#port))}/auth`,
-        {
-          key: value.password,
-        }
-      )
+      .post<boolean>(`${this.#baseUrl}${this.#port}/auth`, {
+        key: value.password,
+      })
       .pipe(
         tap((res) => {
           if (res) {
