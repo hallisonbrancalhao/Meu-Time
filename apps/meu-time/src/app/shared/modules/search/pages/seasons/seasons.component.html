@@ -5,9 +5,6 @@
         <section class="county__names">
             <h1 class="slideInLeft">{{country.value.name}}</h1>
             <h2 class="slideInRight">{{country.value.code}}</h2>
-            <a [routerLink]="['/buscar']" class="">
-                Voltar
-            </a>
         </section>
         <section class="country__seasons">
             <img class="country__seasons__image" [src]="country.value.flag" [alt]="country.value.name">

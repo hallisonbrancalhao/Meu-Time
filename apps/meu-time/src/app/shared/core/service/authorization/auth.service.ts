@@ -42,7 +42,8 @@ export class AuthService {
     localStorage.setItem('isAuth', 'true');
   }
 
-  unauthorize() {
+  public unauthorize() {
+    localStorage.clear();
     this.authStatus.next(false);
   }
 
