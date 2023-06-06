@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 import { AuthGuard } from './shared/core/guards/can-active.guard';
 import { AuthComponent } from './shared/components/auth/auth.component';
+import { AlreadyLoggedGuard } from './shared/core/guards/already-logged.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -11,6 +12,7 @@ export const appRoutes: Route[] = [
   {
     path: 'login',
     component: AuthComponent,
+    canActivate: [AlreadyLoggedGuard],
   },
   {
     path: 'buscar',
