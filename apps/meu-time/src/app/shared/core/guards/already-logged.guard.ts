@@ -5,11 +5,11 @@ import { CanActivateFn, Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard {
+export class AlreadyLoggedGuard {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate: CanActivateFn = () =>
     this.authService.getAuthStatus()
-      ? true
-      : (this.router.navigate(['/login']), false);
+      ? (this.router.navigate(['/buscar']), false)
+      : true;
 }

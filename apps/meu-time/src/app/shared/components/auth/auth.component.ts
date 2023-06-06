@@ -23,9 +23,7 @@ export class AuthComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.authService
-      .getAuthStatus()
-      .subscribe((status) => (this.loginAuthorized = status));
+    this.loginAuthorized = this.authService.getAuthStatus();
   }
 
   public submitForm() {

@@ -42,11 +42,14 @@ export class AuthService {
     localStorage.setItem('isAuth', 'true');
   }
 
-  unauthorize() {
+  public unauthorize() {
+    localStorage.clear();
     this.authStatus.next(false);
   }
 
-  getAuthStatus = (): Observable<boolean> => this.authStatus.asObservable();
+  getAuthStatus(): boolean {
+    return localStorage.getItem('isAuth') === 'true';
+  }
 
   private setApiPort(type: string) {
     this.#port = type === 'rest' ? this.REST_PORT : this.MOCK_PORT;

@@ -1,9 +1,10 @@
 :host {
     header {
-        @apply flex justify-center items-center py-10; 
+        
+        @apply items-center; 
 
         img {
-            @apply w-32
+            @apply w-20 mx-4
         }
     }
 }
