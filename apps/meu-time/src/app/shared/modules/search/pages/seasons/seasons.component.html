@@ -1,7 +1,9 @@
 <app-header></app-header>
 
 <main>
-    <div>
+    <app-country-page *ngIf="isLoading"></app-country-page>
+
+    <div *ngIf="!isLoading">
         <section class="county__names">
             <h1 class="slideInLeft">{{country.value.name}}</h1>
             <h2 class="slideInRight">{{country.value.code}}</h2>

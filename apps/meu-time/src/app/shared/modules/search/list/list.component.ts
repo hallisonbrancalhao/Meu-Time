@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
+  isLoading = true;
   #filteredCountries = new BehaviorSubject<Country[]>([]);
   filteredCountries$ = this.#filteredCountries.asObservable();
 
@@ -21,6 +22,7 @@ export class ListComponent implements OnInit {
     this.countryApiService.getAll().subscribe((coutries) => {
       this.#filteredCountries.next(coutries.response);
       this.#allCountries = coutries.response;
+      this.isLoading = !this.isLoading;
     });
   }
 

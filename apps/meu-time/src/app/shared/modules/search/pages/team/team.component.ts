@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team.component.scss'],
 })
 export class TeamComponent implements OnInit {
+  isLoading = true;
   squad$ = new BehaviorSubject<Player[]>([]);
   team$ = new BehaviorSubject<Team>({
     id: this.activeRoute.snapshot.params['time'],
@@ -30,6 +31,7 @@ export class TeamComponent implements OnInit {
       .getSquad(this.activeRoute.snapshot.params['time'])
       .subscribe((res) => {
         this.squad$.next(res.players);
+        this.isLoading = false;
         this.team$.next(res.team);
       });
     this.teamService

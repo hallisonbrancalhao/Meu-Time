@@ -22,10 +22,13 @@
 
         </div>
 
+
+
         <div class="players_statistics">
             <h3>Lista de jogadores</h3>
             <div>
-                <ul>
+                <app-players *ngIf="isLoading"></app-players>
+                <ul *ngIf="!isLoading">
                     <li *ngFor="let player of squad$ | async">
                         <div class="card__player">
                             <div class="card__player__image">
