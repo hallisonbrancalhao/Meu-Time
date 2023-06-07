@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChartComponent implements OnInit {
   dataGoals$ = new BehaviorSubject<object>([]);
+  isLoading = true;
 
   multi!: object;
   view: [number, number] = [800, 400];
@@ -44,6 +45,7 @@ export class ChartComponent implements OnInit {
       .subscribe((res) => {
         this.dataGoals$.next(res);
         this.multi = this.dataGoals$.value;
+        this.isLoading = !this.isLoading;
       });
   }
 

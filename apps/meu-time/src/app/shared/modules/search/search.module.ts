@@ -11,6 +11,9 @@ import { SearchRoutingModule } from './search-routing.module';
 import { FormsModule } from '@angular/forms';
 import { ChartComponent } from './chart/chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { CountryComponent } from './loaders/country/country.component';
+import { PlayersComponent } from './loaders/players/players.component';
+import { CountryPageComponent } from './loaders/country-page/country-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     FindComponent,
     SeasonsComponent,
     ChartComponent,
+    CountryComponent,
+    PlayersComponent,
+    CountryPageComponent,
   ],
   imports: [CommonModule, SearchRoutingModule, FormsModule, NgxChartsModule],
 })

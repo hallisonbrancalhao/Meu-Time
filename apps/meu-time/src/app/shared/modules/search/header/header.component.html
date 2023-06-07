@@ -1,14 +1,13 @@
 <header>
-    <nav class="bg-gray-900 mb-12 border-gray-200">
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="/buscar" class="flex items-center">
+    <nav class="header__nav ">
+        <div class="header__nav__container">
+            <a href="/buscar" class="header__nav__container__link">
                 <img src="assets/images/logo.png" alt="Logo" />
-                <span class="text-white self-center text-2xl font-semibold whitespace-nowrap">Meu time</span>
+                <span class="header__nav__container__link__titulo">Meu time</span>
             </a>
-            <button (click)="showMobileMenu()" type="button"
-                class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+            <button (click)="showMobileMenu()" type="button" class="header__nav__container__button "
                 aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Menu</span>
+                <span class="header__nav__container__button__nome">Menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -16,17 +15,13 @@
                         clip-rule="evenodd"></path>
                 </svg>
             </button>
-            <div [class]="showMobile ? 'w-full md:block md:w-auto' : ''" class="">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+            <div [class]="showMobile ? 'w-full' : 'header__nav__container__menu hidden '" id="navbar-default">
+                <ul class="header__nav__container__menu__ul">
                     <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0"
-                            aria-current="page">Home</a>
+                        <a routerLink="/buscar" class="" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a (click)="onSignOut()" routerLink="/login"
-                            class="block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0">Sair</a>
+                        <a (click)="onSignOut()" routerLink="/login">Sair</a>
                     </li>
                 </ul>
             </div>

@@ -1,7 +1,8 @@
 <app-find (emitSearch)="getSearch($event)"></app-find>
 
 <section class="listagem">
-    <ng-template ngFor let-country [ngForOf]="filteredCountries$ | async">
+    <app-country *ngIf="isLoading"></app-country>
+    <ng-template *ngIf="!isLoading" ngFor let-country [ngForOf]="filteredCountries$ | async">
         <a class="country" [routerLink]="[country.name]" *ngIf="country.name">
             <section class="country__status">
                 <h2 class="">{{country.name}}</h2>

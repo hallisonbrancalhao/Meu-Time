@@ -1,10 +1,47 @@
 :host {
     header {
-        
-        @apply items-center; 
+        @apply items-center;
 
-        img {
-            @apply w-20 mx-4
+        .header__nav {
+            @apply bg-gray-900 mb-12 border-gray-200;
+
+            &__container {
+                @apply max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4;
+
+                &__link {
+                    @apply flex items-center;
+
+                    img {
+                        @apply w-20 mx-4;
+                    }
+
+                    &__titulo {
+                        @apply text-white self-center text-2xl font-semibold whitespace-nowrap;
+                    }
+                }
+
+                &__button {
+                    @apply inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200;
+
+                    &__nome { 
+                        @apply sr-only;
+                    }
+                }
+
+                &__menu {
+                    @apply w-full md:block md:w-auto;
+
+                    &__ul {
+                        @apply font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0;
+
+                        li {
+                            a {
+                                @apply block py-2 pl-3 pr-4 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-200 md:p-0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
