@@ -20,6 +20,7 @@ export class SeasonsComponent implements OnInit {
   isSetLeague = false;
   league!: League;
   teams!: TeamResponse[];
+  isLoading = true;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -39,6 +40,7 @@ export class SeasonsComponent implements OnInit {
       });
     this.coutriesService.getSeasons().subscribe((season) => {
       this.seasons.next(season.response);
+      this.isLoading = !this.isLoading;
     });
   }
 

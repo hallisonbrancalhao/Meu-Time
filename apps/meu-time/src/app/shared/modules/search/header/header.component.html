@@ -1,3 +1,30 @@
 <header>
-    <img src="assets/images/logo.png" alt="logo Meu Time">
+    <nav class="header__nav ">
+        <div class="header__nav__container">
+            <a href="/buscar" class="header__nav__container__link">
+                <img src="assets/images/logo.png" alt="Logo" />
+                <span class="header__nav__container__link__titulo">Meu time</span>
+            </a>
+            <button (click)="showMobileMenu()" type="button" class="header__nav__container__button "
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="header__nav__container__button__nome">Menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            <div [class]="showMobile ? 'w-full' : 'header__nav__container__menu hidden '" id="navbar-default">
+                <ul class="header__nav__container__menu__ul">
+                    <li>
+                        <a routerLink="/buscar" class="" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a (click)="onSignOut()" routerLink="/login">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
